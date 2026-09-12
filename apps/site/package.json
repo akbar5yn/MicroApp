@@ -1,0 +1,21 @@
+{
+  "name": "@microapp/site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "dev:mfe": "astro dev",
+    "build": "astro build",
+    "build:mfe": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/react": "^6.0.5",
+    "@astrojs/vue": "^7.0.2",
+    "@microapp/shared-contract": "workspace:^",
+    "astro": "^7.3.2"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}

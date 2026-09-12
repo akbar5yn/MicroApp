@@ -1,0 +1,65 @@
+---
+import { microfrontends } from "../config/microfrontends";
+---
+
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Akbar Pratama Suryamin</title>
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <h2>About</h2>
+
+        <div id="mfe-home" data-url={microfrontends.home.url}></div>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+
+        <div id="mfe-experience" data-url={microfrontends.experience.url}></div>
+      </section>
+    </main>
+
+    <script>
+      import { loadMicroFrontend } from "../lib/mfe/loader";
+
+      async function initializeMicrofrontends() {
+        const homeContainer = document.querySelector<HTMLElement>("#mfe-home");
+
+        const experienceContainer =
+          document.querySelector<HTMLElement>("#mfe-experience");
+
+        if (homeContainer) {
+          const url = homeContainer.dataset.url;
+
+          if (url) {
+            await loadMicroFrontend({
+              url,
+              container: homeContainer,
+            });
+          }
+        }
+
+        if (experienceContainer) {
+          const url = experienceContainer.dataset.url;
+
+          if (url) {
+            await loadMicroFrontend({
+              url,
+              container: experienceContainer,
+            });
+          }
+        }
+      }
+
+      initializeMicrofrontends().catch((error) => {
+        console.error("[HOST] Failed to initialize microfrontends:", error);
+      });
+    </script>
+  </body>
+</html>

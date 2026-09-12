@@ -1,0 +1,17 @@
+{
+  "name": "microapp",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:mfe": "turbo run dev:mfe",
+    "build": "turbo run build",
+    "build:mfe": "turbo run build:mfe",
+    "lint": "turbo run lint",
+    "format": "turbo run format"
+  },
+  "devDependencies": {
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@9.0.0"
+}

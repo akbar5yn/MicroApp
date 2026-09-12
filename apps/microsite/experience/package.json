@@ -1,0 +1,35 @@
+{
+  "name": "@microapp/experience",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:mfe": "vite --mode mfe",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "build:mfe": "run-p type-check \"build-mfe {@}\" --",
+    "build-only": "vite build",
+    "build-mfe": "vite build --mode mfe",
+    "preview": "vite preview",
+    "preview:mfe": "vite preview --mode mfe",
+    "type-check": "tsc -b",
+    "lint": "oxlint .",
+    "format": "oxfmt src/"
+  },
+  "dependencies": {
+    "@microapp/shared-contract": "workspace:^",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "oxfmt": "^0.21.0",
+    "npm-run-all2": "^8.0.4",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

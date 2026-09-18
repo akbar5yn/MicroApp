@@ -1,0 +1,11 @@
+:host {
+    --color-page: #f8f8f6;
+    --color-surface: #ffffff;
+    --color-panel: #f9f8f6;
+    --color-text: #181818;
+    --color-muted: #6b7280;
+    --color-border: #d1d5db;
+    --color-strong: #000000;
+    --color-inverse: #ffffff;
+    --color-line: #000000;
+}

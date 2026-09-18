@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 import { microfrontends } from "../config/microfrontends";
 ---
 
@@ -12,53 +13,35 @@ import { microfrontends } from "../config/microfrontends";
 
   <body>
     <main>
-      <section>
-        <h2>About</h2>
-
+      <section class="page page--center">
         <div id="mfe-home" data-url={microfrontends.home.url}></div>
-      </section>
-
-      <section>
-        <h2>Experience</h2>
-
-        <div id="mfe-experience" data-url={microfrontends.experience.url}></div>
       </section>
     </main>
 
     <script>
       import { loadMicroFrontend } from "../lib/mfe/loader";
 
-      async function initializeMicrofrontends() {
-        const homeContainer = document.querySelector<HTMLElement>("#mfe-home");
+      async function initializeHome() {
+        const container = document.querySelector<HTMLElement>("#mfe-home");
 
-        const experienceContainer =
-          document.querySelector<HTMLElement>("#mfe-experience");
-
-        if (homeContainer) {
-          const url = homeContainer.dataset.url;
-
-          if (url) {
-            await loadMicroFrontend({
-              url,
-              container: homeContainer,
-            });
-          }
+        if (!container) {
+          throw new Error("[HOST] Home container not found");
         }
 
-        if (experienceContainer) {
-          const url = experienceContainer.dataset.url;
+        const url = container.dataset.url;
 
-          if (url) {
-            await loadMicroFrontend({
-              url,
-              container: experienceContainer,
-            });
-          }
+        if (!url) {
+          throw new Error("[HOST] Home MFE URL not configured");
         }
+
+        await loadMicroFrontend({
+          url,
+          container,
+        });
       }
 
-      initializeMicrofrontends().catch((error) => {
-        console.error("[HOST] Failed to initialize microfrontends:", error);
+      initializeHome().catch((error) => {
+        console.error("[HOST] Failed to initialize Home MFE:", error);
       });
     </script>
   </body>

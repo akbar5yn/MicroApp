@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+    --color-background: #f8f8f6;
+    --color-surface: #ffffff;
+    --color-panel: #f1f1ed;
+
+    --color-text: #171717;
+    --color-muted: #737373;
+
+    --color-border: #e5e5e5;
+
+    --shadow: 0 10px 30px rgb(0 0 0 / 0.06);
+}
+
+html[data-theme="dark"] {
+    --color-background: #111111;
+    --color-surface: #181818;
+    --color-panel: #202020;
+
+    --color-text: #f5f5f5;
+    --color-muted: #a3a3a3;
+
+    --color-border: #303030;
+
+    --shadow: 0 10px 30px rgb(0 0 0 / 0.3);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100dvh;
+}
+
+body {
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: "Nunito", sans-serif;
+}
+
+main {
+    width: 100%;
+    min-height: 100dvh;
+}
+
+.page {
+    width: 100%;
+    min-height: 100dvh;
+
+    display: flex;
+    box-sizing: border-box;
+}
+
+.page--center {
+    align-items: center;
+    justify-content: center;
+}
+
+.page--top-left {
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.page--top-center {
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.page--top-right {
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.page--center-left {
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.page--center-right {
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.page--bottom-left {
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.page--bottom-center {
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.page--bottom-right {
+    align-items: flex-end;
+    justify-content: flex-end;
+}

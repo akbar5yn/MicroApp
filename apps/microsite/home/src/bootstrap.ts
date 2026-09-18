@@ -1,48 +1,39 @@
-import { createApp, type App } from 'vue'
+import { defineCustomElement, type ComponentOptions } from 'vue'
 import AppComponent from './App.vue'
 import type { MicroFrontend } from '@microapp/shared-contract'
 
 import styles from './assets/styles/main.css?inline'
 
-let app: App<Element> | null = null
-let shadowRoot: ShadowRoot | null = null
+interface VueCustomElementOptions extends ComponentOptions {
+    styles?: string[]
+}
+
+const componentOptions = AppComponent as VueCustomElementOptions
+
+const MyMicroFrontendElement = defineCustomElement({
+    ...componentOptions,
+    styles: [styles, ...(componentOptions.styles || [])]
+})
+
+if (!customElements.get('my-home')) {
+    customElements.define('my-home', MyMicroFrontendElement)
+}
+
+let elementInstance: HTMLElement | null = null
 
 const microfrontend: MicroFrontend = {
     mount(container) {
-        shadowRoot =
-            container.shadowRoot ??
-            container.attachShadow({
-                mode: 'open',
-            })
-
-        const style = document.createElement('style')
-
-        style.textContent = styles
-
-        shadowRoot.appendChild(style)
-
-        const mountPoint = document.createElement('div')
-
-        mountPoint.id = 'mfe-root'
-
-        shadowRoot.appendChild(mountPoint)
-
-        app = createApp(AppComponent)
-
-        app.mount(mountPoint)
+        elementInstance = document.createElement('my-home')
+        container.appendChild(elementInstance)
     },
 
     unmount() {
-        app?.unmount()
-
-        app = null
-
-        shadowRoot?.replaceChildren()
-
-        shadowRoot = null
+        if (elementInstance) {
+            elementInstance.remove()
+            elementInstance = null
+        }
     },
 }
 
 export default microfrontend
-
 export const { mount, unmount } = microfrontend

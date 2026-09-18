@@ -7,12 +7,16 @@ export default defineConfig(({ mode }) => {
   const isMfe = mode === 'mfe'
 
   return {
-    plugins: [vue()],
+    plugins: [
+      vue({
+        customElement: true,
+      })
+    ],
 
     base: isMfe ? 'http://localhost:4173/' : '/',
 
     server: {
-      port: isMfe ? 4173 : 5173,
+      port: isMfe ? 4173 : 5176,
       strictPort: true,
 
       hmr: isMfe ? false : undefined,

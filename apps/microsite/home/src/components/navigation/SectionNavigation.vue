@@ -29,10 +29,6 @@ const navigationItems = [
   },
 ] as const;
 
-const activeIndex = computed(() => {
-  return navigationItems.findIndex((item) => item.id === props.activeSection);
-});
-
 const moveNavigation = (direction: number) => {
   const currentIndex = navigationItems.findIndex((item) => item.id === props.activeSection);
 

@@ -52,13 +52,9 @@ const socialLinks = [
   padding: 12px 14px 14px 12px;
 
   color: var(--color-text);
-  background: var(--color-page);
-
-  border-right: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  // background: var(--color-page);
   border-bottom-right-radius: 18px;
-
-  box-shadow: 8px 8px 18px color-mix(in srgb, var(--color-line) 7%, transparent);
+  // box-shadow: 8px 8px 18px color-mix(in srgb, var(--color-line) 7%, transparent);
 
   a {
     position: relative;
@@ -81,33 +77,35 @@ const socialLinks = [
     }
   }
 
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
+  // &::before,
+  // &::after {
+  //   content: "";
+  //   position: absolute;
 
-    pointer-events: none;
-    background: transparent;
-  }
+  //   pointer-events: none;
+  //   background: transparent;
+  // }
 
-  &::before {
-    width: 20px;
-    height: 30px;
-    top: 1px;
-    right: -20px;
+  // &::before {
+  //   border-top-left-radius: 18px;
 
-    border-top-left-radius: 18px;
-    box-shadow: -10px -20px 0 10px var(--color-page);
-  }
+  //   width: 20px;
+  //   height: 30px;
+  //   top: -1px;
+  //   right: -21px;
 
-  &::after {
-    width: 20px;
-    height: 30px;
-    bottom: -30px;
-    left: 1px;
+  //   box-shadow: -10px -20px 0 10px var(--color-page);
+  // }
 
-    border-top-left-radius: 18px;
-    box-shadow: -10px -20px 0 10px var(--color-page);
-  }
+  // &::after {
+  //   border-top-left-radius: 18px;
+
+  //   width: 20px;
+  //   height: 30px;
+  //   bottom: -31px;
+  //   left: 0px;
+
+  //   box-shadow: -10px -20px 0 10px var(--color-page);
+  // }
 }
 </style>
